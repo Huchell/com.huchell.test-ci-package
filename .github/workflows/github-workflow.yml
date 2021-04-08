@@ -16,12 +16,12 @@ jobs:
       - name: Checkout testbed
         uses: action/checkout@v2
         with:
-          repository: https://github.com/Huchell/PackageCITest.git
+          repository: Huchell/PackageCITest
           
       - name: Checkout package
         uses: action/checkout@v2
         with:
-          path: './Packages/'
+          path: Packages/
           
       - name: Unity - Test runner
         uses: game-ci/unity-test-runner@v2.0-alpha-4
