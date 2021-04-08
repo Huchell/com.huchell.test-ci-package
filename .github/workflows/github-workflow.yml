@@ -16,7 +16,7 @@ jobs:
       - name: Checkout testbed
         uses: actions/checkout@v2
         with:
-          repository: Huchell/PackageCITest
+          repository: https://github.com/Huchell/PackageCITest.git
           
       - name: Checkout package
         uses: actions/checkout@v2
