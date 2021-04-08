@@ -21,7 +21,7 @@ jobs:
       - name: Checkout package
         uses: actions/checkout@v2
         with:
-          path: Packages/
+          path: Packages/com.huchell.test-ci-package
           
       - name: Unity - Test runner
         uses: game-ci/unity-test-runner@v2.0-alpha-4
