@@ -14,12 +14,12 @@ jobs:
       
     steps:
       - name: Checkout testbed
-        uses: action/checkout@v2
+        uses: actions/checkout@v2
         with:
           repository: Huchell/PackageCITest
           
       - name: Checkout package
-        uses: action/checkout@v2
+        uses: actions/checkout@v2
         with:
           path: Packages/
           
