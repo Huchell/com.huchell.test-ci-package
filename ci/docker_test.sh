@@ -10,4 +10,4 @@ docker run \
   -w /project/ \
   -v $UNITY_DIR:/project/ \
   $IMAGE_NAME \
-  /bin/bash -c "/project/ci/before_script.sh && /project/ci/test.sh"
+  /bin/bash -c "/ci/before_script.sh && /ci/test.sh"
