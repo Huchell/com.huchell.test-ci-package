@@ -1,0 +1,46 @@
+name: Unity Package
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  activation:
+    name: Request manual activation file
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Request manual activation file
+        id: getManualLicenseFile
+        uses: game-ci/unity-request-activation-file@v2
+        
+      - name: Expose as artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ steps.getManualLicenseFile.outputs.filePath }}
+          path: ${{ steps.getManualLicenseFile.outputs.filePath }}
+      
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    env:
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      
+    steps:
+      - name: Checkout testbed
+        uses: action/checkout@v2
+        with:
+          repository: 'https://github.com/Huchell/PackageCITest.git'
+          
+      - name: Checkout package
+        uses: action/checkout@v2
+        with:
+          path: './Packages/'
+          
+      - name: Unity - Test runner
+        uses: game-ci/unity-test-runner@v2.0-alpha-4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          
