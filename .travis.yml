@@ -13,7 +13,7 @@ before_install:
 - docker pull $IMAGE_NAME
 
 before_script:
-- git clone --depth 0 https://github.com/Huchell/PackageCITest.git ../PackageCITest
+- git clone --depth 1 https://github.com/Huchell/PackageCITest.git ../PackageCITest
 - mv -rf ./ ../PackageCITest/Packages/com.huchell.test-ci-package/
 - cp -rf ../PackageCITest/Packages/com.huchell.test-ci-package/ci/ ci/
 
