@@ -6,16 +6,16 @@ env:
 services:
 - docker
 
-before-install:
+before_install:
 - openssl aes-256-cbc -K $encrypted_6f413a7ac078_key -iv $encrypted_6f413a7ac078_iv -in ci/Unity_v2019.x.ulf.enc -out ci/Unity_v2019.x.ulf -d
-- export UNITY_LICENSE=`cat Unity_v2019.x.ulf`
+- export UNITY_LICENSE=`cat ci/Unity_v2019.x.ulf`
 - rm ci/Unity_v2019.x.ulf
 - docker pull $IMAGE_NAME
 
-before-script:
-- cp -r /project/ci/ /ci/
-- git clone https://github.com/Huchell/PackageCITest.git --depth 0
-- mv -rf project/ PackageCITest/Packages/project/
+before_script:
+- cp -rf ci/ ../ci/
+- git clone --depth 0 https://github.com/Huchell/PackageCITest.git ../PackageCITest
+- mv -rf ./ ../PackageCITest/Packages/com.huchell.test-ci-package/
 
 jobs:
   include:
