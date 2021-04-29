@@ -1,4 +1,4 @@
-git branch -b $RELEASE_BRANCH develop
+git branch -b $RELEASE_BRANCH main
 npm version $VERSION
 git add package.json
 git commit -m "Bump version"
