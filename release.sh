@@ -1,4 +1,4 @@
-git branch -b $RELEASE_BRANCH main
+git checkout -b $RELEASE_BRANCH main
 
 cd com.huchell.test-ci-package
 npm version $VERSION
