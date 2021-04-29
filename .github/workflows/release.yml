@@ -1,0 +1,26 @@
+name: release
+
+on:
+  workflow-dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g. 1.0.0)"
+        required: true
+
+jobs:
+  branch:
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ github.event.inputs.version }}
+      RELEASE_BRANCH: release/${{ github.event.inputs.version }}
+    steps:
+      - uses: actions/checkout@v2
+      - runs: ./release.sh
+
+      - name: Create Release Pull Request
+        uses: vsoch/pull-request-action@1.0.17
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_BRANCH: main
+          PULL_REQUEST_FROM_BRANCH: release/${{ github.event.inputs.version }}
+          PULL_REQUEST_TITLE: Release ${{ github.event.inputs.version }}
