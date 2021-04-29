@@ -26,3 +26,26 @@ jobs:
           PULL_REQUEST_BRANCH: main
           PULL_REQUEST_FROM_BRANCH: release/${{ github.event.inputs.version }}
           PULL_REQUEST_TITLE: Release ${{ github.event.inputs.version }}
+
+  tests:
+    runs-on: ubuntu-latest
+    needs: branch
+    env:
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: Huchell/PackageCITest
+
+      - uses: actions/checkout@v2
+        with:
+          path: Packages/com.huchell.test-ci-package
+
+      - name: Unity - Test runner
+        uses: game-ci/unity-test-runner@v2.0
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
