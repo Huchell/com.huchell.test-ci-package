@@ -1,4 +1,4 @@
-git config user.singingkey = $GITHUB_TOKEN
+git config user.signingkey = $GITHUB_TOKEN
 
 git checkout -b $RELEASE_BRANCH main
 
