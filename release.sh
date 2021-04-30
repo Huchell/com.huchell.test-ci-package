@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
-source /setup.sh
-
 git checkout -b $RELEASE_BRANCH main
 
 cd com.huchell.test-ci-package
