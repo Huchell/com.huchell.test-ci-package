@@ -1,4 +1,4 @@
-git config --local --name-only --get-regexp core\.sshCommand
+source setup.sh
 
 git checkout -b $RELEASE_BRANCH main
 
