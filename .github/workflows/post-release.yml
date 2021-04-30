@@ -16,6 +16,6 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          ::set-output name=version::$(npm --version)
+          echo "::set-output name=version::$(npm --version)"
           echo $(npm --version)
         
