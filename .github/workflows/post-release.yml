@@ -15,7 +15,8 @@ jobs:
 
       - name: Get version
         id: get_version
-        run: echo "::set-output name=version::$(echo npm --version)" 
-
-      - run: echo ${{ steps.get_version.outputs.version }}
+        run: |
+          $VERSION = npm --version
+          ::set-output name=version::$VERSION
+          echo $VERSION
         
