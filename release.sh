@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 source /setup.sh
 
 git checkout -b $RELEASE_BRANCH main
