@@ -18,7 +18,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          echo "::set-output name=version::$(npm --version)"
+          echo "::set-output name=version::$(node -p "require('./com.huchell.test-ci-package/package.json').version")
 
   tag:
     runs-on: ubuntu-latest
