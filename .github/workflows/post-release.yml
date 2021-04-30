@@ -11,8 +11,7 @@ jobs:
   version:
     runs-on: ubuntu-latest
     outputs:
-      version:
-        value: ${{ steps.get_version.outputs.version }}
+      version: ${{ steps.get_version.outputs.version }}
     steps:
       - uses: actions/checkout@v2
 
@@ -28,7 +27,7 @@ jobs:
       VERSION: ${{ needs.version.outputs.version }}
     steps:
       - uses: actions/checkout@v2
-      - runs: |
+      - run: |
           chmod -x post-release.sh
           sh post-release.sh 
         
