@@ -18,7 +18,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          $VERSION = $(node -p "require('./com.huchell.test-ci-package/package.json').version")
+          VERSION = $(node -p "require('./com.huchell.test-ci-package/package.json').version")
           echo "::set-output name=version::$VERSION"
 
   tag:
