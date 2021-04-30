@@ -1,5 +1,4 @@
-git config user.email "sean.p.murray97@gmail.com"
-git config user.name "Sean"
+git config --local --name-only --get-regexp core\.sshCommand
 
 git checkout -b $RELEASE_BRANCH main
 
