@@ -18,8 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          chmod +x setup.sh
-          sh setup.sh
           chmod +x release.sh
           sh release.sh
 
