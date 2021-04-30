@@ -24,10 +24,11 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     needs: version
+    env:
+      VERSION: ${{ needs.version.outputs.version }}
     steps:
       - uses: actions/checkout@v2
-
       - runs: |
-        chmod -x post-release.sh
-        sh post-release.sh 
+          chmod -x post-release.sh
+          sh post-release.sh 
         
