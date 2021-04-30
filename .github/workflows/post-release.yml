@@ -16,7 +16,7 @@ jobs:
       - name: Get version
         id: get_version
         run: |
-          $VERSION = npm --version
+          $VERSION=npm --version
           ::set-output name=version::$VERSION
           echo $VERSION
         
